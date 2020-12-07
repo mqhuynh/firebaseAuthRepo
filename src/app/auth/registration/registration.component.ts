@@ -11,7 +11,5 @@ export class RegistrationComponent implements OnInit {
   authError: any;
   ngOnInit(): void {}
 
-  createUser(frm) {
-    this.auth.createUser(frm.value);
-  }
+  createUser() {}
 }
