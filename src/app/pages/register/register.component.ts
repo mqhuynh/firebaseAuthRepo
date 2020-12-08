@@ -1,7 +1,6 @@
 import { Router } from '@angular/router';
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { promise } from 'protractor';
 
 @Component({
   selector: 'app-register',
@@ -37,7 +36,7 @@ export class RegisterComponent implements OnInit {
           this.message = 'Your credentials has been registered to Firebase';
         })
         .then(() => {
-          this.router.navigate(['/home']);
+          this.router.navigate(['/']);
         })
         .catch((_error) => {
           this.error = _error;
