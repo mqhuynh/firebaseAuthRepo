@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form (ngSubmit)="login()">
+        <h3>Login Form</h3>
+        <div class="form-group p-2">
+          <input
+            type="email"
+            name="email"
+            class="form-control"
+            [(ngModel)]="email"
+            placeholder="Enter email Id"
+            required
+          />
+        </div>
+        <div class="form-group p-2">
+          <input
+            type="password"
+            name="password"
+            class="form-control"
+            [(ngModel)]="password"
+            placeholder="Enter password"
+            required
+          />
+        </div>
+        <div class="form-group p-2">
+          <button class="btn btn-success" type="submit">Sign In</button>
+          <div class="register">
+            <a href="#" routerLink="/register"> New User Registration</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
