@@ -8,10 +8,36 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   authState: any = null;
 
-  constructor(private afu: AngularFireAuth, private router: Router) {
+  constructor(public afu: AngularFireAuth, private router: Router) {
     this.afu.authState.subscribe((auth) => {
       this.authState = auth;
     });
+  }
+
+  // All firebase getData functions
+
+  get isUserAnonymousLoggedIn(): boolean {
+    return this.authState !== null ? this.authState.isAnonymous : false;
+  }
+
+  get currentUserId(): string {
+    return this.authState !== null ? this.authState.uid : '';
+  }
+
+  get currentUserName(): string {
+    return this.authState['email'];
+  }
+
+  get currentUser(): any {
+    return this.authState !== null ? this.authState : null;
+  }
+
+  get isUserEmailLoggedIn(): boolean {
+    if (this.authState !== null && !this.isUserAnonymousLoggedIn) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   registerWithEmail(email: string, password: string) {
